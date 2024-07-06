@@ -14,8 +14,19 @@ const fetchMobileData = async (search) => {
 
 const displayMobilesData = (mobiles) => {
     const parentContainer = document.getElementById('card_container');
-
     parentContainer.textContent = '';
+
+    //* Show all button
+
+    const showAllButton = document.getElementById('show_all');
+    if (mobiles.length > 12) {
+        showAllButton.classList.remove('hidden');
+    } else {
+        showAllButton.classList.add('hidden');
+    }
+
+    //* added slice to debug data
+    mobiles = mobiles.slice(0, 12);
 
     mobiles.map((mobile) => {
         const card = document.createElement('div');
@@ -75,7 +86,6 @@ const handleLoading = (isLoading) => {
 const handleSearchButton = (buttonId) => {
     const searchButtonElement = document.getElementById(buttonId);
     const searchButtonValue = searchButtonElement.innerText;
-    console.log(searchButtonValue);
     fetchMobileData(searchButtonValue);
 };
 
