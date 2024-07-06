@@ -1,7 +1,8 @@
 //* Fetch data
-const fetchMobileData = async () => {
+
+const fetchMobileData = async (search) => {
     const response = await fetch(
-        'https://openapi.programming-hero.com/api/phones?search=iphone'
+        `https://openapi.programming-hero.com/api/phones?search=${search}`
     );
     const mobilesData = await response.json();
     const mobiles = mobilesData.data;
@@ -9,14 +10,15 @@ const fetchMobileData = async () => {
     displayMobilesData(mobiles);
 };
 
-fetchMobileData();
+//* display mobiles data
 
 const displayMobilesData = (mobiles) => {
     const parentContainer = document.getElementById('card_container');
 
+    parentContainer.textContent = '';
+
     mobiles.map((mobile) => {
         const card = document.createElement('div');
-        console.log(mobile);
 
         card.innerHTML = `
         <div class="card bg-base-100 shadow-xl">
@@ -41,4 +43,13 @@ const displayMobilesData = (mobiles) => {
 
         parentContainer.appendChild(card);
     });
+};
+
+//* search with Input value
+
+const searchWithInput = () => {
+    const searchInputElement = document.getElementById('searchText');
+    const searchText = searchInputElement.value;
+    searchInputElement.value = '';
+    fetchMobileData(searchText);
 };
