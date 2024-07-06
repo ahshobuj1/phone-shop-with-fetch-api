@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Electronics Galaxy</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+            rel="stylesheet"
+            type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="box-border">
+        <header class="px-2 lg:px-36 py-3">
+            <nav class="pb-3 md:py-12">
+                <div class="navbar bg-violet-300 rounded-full">
+                    <div class="flex-1">
+                        <a
+                            class="btn btn-ghost text-[#403F3F] font-bold text-2xl"
+                            >Electronics
+                            <span class="text-amber-800">Galaxy</span></a
+                        >
+                    </div>
+
+                    <div class="flex-none">
+                        <div class="dropdown dropdown-end md:mr-5">
+                            <button
+                                class="btn btn-primary text-white text-base">
+                                Sign Up
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- banner  -->
+
+            <div>
+                <div class="">
+                    <div class="flex flex-col justify-center">
+                        <div
+                            class="text-center space-y-6 max-w-[800px] mx-auto mb-12">
+                            <h1 class="text-2xl md:text-5xl font-bold">
+                                Box Office News!
+                            </h1>
+                            <p class="text-sm md:text-lg text-[#706F6F] px-2">
+                                There are many variations of passages of Lorem
+                                Ipsum available, but the majority have suffered
+                                alteration in some form, by injected humou.
+                            </p>
+                            <button
+                                class="btn btn-primary text-white text-base">
+                                Buy Now
+                            </button>
+                        </div>
+
+                        <div class="mx-auto flex-1">
+                            <img
+                                src="/images/banner.png"
+                                class="max-w-sm rounded-lg lg:min-w-[800px]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="px-2 py-10 lg:px-36 lg:py-32">
+                <!-- search area -->
+                <div class="-space-x-1 text-center mb-12">
+                    <h3 class="text-3xl font-semibold text-center mb-8">
+                        Search your phone
+                    </h3>
+
+                    <div class="flex flex-row max-auto justify-center">
+                        <div class="w-full max-w-xs">
+                            <label
+                                class="input input-bordered flex items-center gap-2">
+                                <input
+                                    id="searchText"
+                                    type="text"
+                                    class="grow"
+                                    placeholder="Search" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-4 w-4 opacity-70">
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </label>
+                        </div>
+                        <button class="btn btn-secondary px-8">Search</button>
+                    </div>
+                </div>
+
+                <!--   search result -->
+
+                <div
+                    id="card_container"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+        </main>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
