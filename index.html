@@ -13,7 +13,7 @@
     </head>
     <body class="box-border">
         <header class="px-2 lg:px-36 py-3">
-            <nav class="pb-3 md:py-12">
+            <nav class="pb-3 md:pb-12">
                 <div class="navbar bg-violet-300 rounded-full">
                     <div class="flex-1">
                         <a
@@ -66,14 +66,14 @@
         </header>
 
         <main>
-            <section class="px-2 py-10 lg:px-36 lg:py-32">
+            <section class="px-2 py-10 lg:px-36 lg:py-20">
                 <!-- search area -->
                 <div class="-space-x-1 text-center mb-12">
                     <h3 class="text-3xl font-semibold text-center mb-8">
                         Search your phone
                     </h3>
 
-                    <div class="flex flex-row max-auto justify-center">
+                    <div class="flex flex-row max-auto justify-center p-3">
                         <div class="w-full max-w-xs">
                             <label
                                 class="input input-bordered flex items-center gap-2">
@@ -102,11 +102,44 @@
                     </div>
                 </div>
 
+                <!-- search with filter button -->
+
+                <div class="text-center space-x-3 mb-5">
+                    <h3 class="text-3xl font-Bold text-rose-600 mb-5">
+                        Search with button
+                    </h3>
+                    <button
+                        id="search_iphone"
+                        onclick="searchIphone()"
+                        class="handleSearch btn btn-active btn-neutral px-10">
+                        IPhone
+                    </button>
+
+                    <button
+                        id="search_samsung"
+                        onclick="searchSamsung()"
+                        class="handleSearch btn btn-active btn-primary px-10">
+                        Samsung
+                    </button>
+
+                    <button
+                        id="search_oppo"
+                        onclick="searchOppo()"
+                        class="handleSearch btn btn-active btn-accent px-10">
+                        Oppo
+                    </button>
+                </div>
+
+                <!-- Loading -->
+                <div id="loading" class="text-center hidden">
+                    <span class="loading loading-spinner text-success"></span>
+                </div>
+
                 <!--   search result -->
 
                 <div
                     id="card_container"
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-3"></div>
             </section>
         </main>
 

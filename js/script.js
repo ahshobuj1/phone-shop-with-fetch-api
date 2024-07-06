@@ -43,13 +43,53 @@ const displayMobilesData = (mobiles) => {
 
         parentContainer.appendChild(card);
     });
+
+    handleLoading(false);
 };
 
 //* search with Input value
 
 const searchWithInput = () => {
+    handleLoading(true);
+
     const searchInputElement = document.getElementById('searchText');
     const searchText = searchInputElement.value;
     searchInputElement.value = '';
     fetchMobileData(searchText);
+};
+
+//* Set loading
+
+const handleLoading = (isLoading) => {
+    const loadingElement = document.getElementById('loading');
+
+    if (isLoading) {
+        loadingElement.classList.remove('hidden');
+    } else {
+        loadingElement.classList.add('hidden');
+    }
+};
+
+//* Search With Button
+
+const handleSearchButton = (buttonId) => {
+    const searchButtonElement = document.getElementById(buttonId);
+    const searchButtonValue = searchButtonElement.innerText;
+    console.log(searchButtonValue);
+    fetchMobileData(searchButtonValue);
+};
+
+const searchIphone = () => {
+    handleLoading(true);
+    handleSearchButton('search_iphone');
+};
+
+const searchSamsung = () => {
+    handleLoading(true);
+    handleSearchButton('search_samsung');
+};
+
+const searchOppo = () => {
+    handleLoading(true);
+    handleSearchButton('search_oppo');
 };
