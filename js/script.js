@@ -1,23 +1,24 @@
 //* Fetch data
 
-const fetchMobileData = async (search) => {
+const fetchMobileData = async (search, showAll) => {
     const response = await fetch(
         `https://openapi.programming-hero.com/api/phones?search=${search}`
     );
     const mobilesData = await response.json();
     const mobiles = mobilesData.data;
 
-    displayMobilesData(mobiles);
+    displayMobilesData(mobiles, showAll);
 };
 
 //* display mobiles data
 
-const displayMobilesData = (mobiles) => {
+const displayMobilesData = (mobiles, showAll) => {
     const parentContainer = document.getElementById('card_container');
     parentContainer.textContent = '';
 
-    //* Show all button
+    //console.log('show all button', showAll);
 
+    //* Show all button
     const showAllButton = document.getElementById('show_all');
     if (mobiles.length > 12) {
         showAllButton.classList.remove('hidden');
@@ -25,8 +26,11 @@ const displayMobilesData = (mobiles) => {
         showAllButton.classList.add('hidden');
     }
 
-    //* added slice to debug data
-    mobiles = mobiles.slice(0, 12);
+    //* added slice to debug data & handle show all
+
+    if (!showAll) {
+        mobiles = mobiles.slice(0, 12);
+    }
 
     mobiles.map((mobile) => {
         const card = document.createElement('div');
@@ -51,22 +55,23 @@ const displayMobilesData = (mobiles) => {
                         </div>
                     </div>
         `;
-
         parentContainer.appendChild(card);
     });
-
     handleLoading(false);
 };
 
 //* search with Input value
 
-const searchWithInput = () => {
+const searchWithInput = (showAll) => {
     handleLoading(true);
 
     const searchInputElement = document.getElementById('searchText');
     const searchText = searchInputElement.value;
-    searchInputElement.value = '';
-    fetchMobileData(searchText);
+
+    if (showAll) {
+        searchInputElement.value = '';
+    }
+    fetchMobileData(searchText, showAll);
 };
 
 //* Set loading
@@ -102,4 +107,10 @@ const searchSamsung = () => {
 const searchOppo = () => {
     handleLoading(true);
     handleSearchButton('search_oppo');
+};
+
+//* Handle show all
+
+const handleShowAll = () => {
+    searchWithInput(true);
 };
