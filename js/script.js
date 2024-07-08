@@ -6,7 +6,6 @@ const fetchMobileData = async (search) => {
     );
     const mobilesData = await response.json();
     const mobiles = mobilesData.data;
-
     displayMobilesData(mobiles);
 };
 
@@ -15,16 +14,6 @@ const fetchMobileData = async (search) => {
 const displayMobilesData = (mobiles) => {
     const parentContainer = document.getElementById('card_container');
     parentContainer.textContent = '';
-
-    //console.log('show all button', showAll);
-
-    //* Show all button
-    const showAllButton = document.getElementById('show_all');
-    if (mobiles.length > 12) {
-        showAllButton.classList.remove('hidden');
-    } else {
-        showAllButton.classList.add('hidden');
-    }
 
     mobiles.map((mobile) => {
         const card = document.createElement('div');
