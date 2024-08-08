@@ -1,3 +1,6 @@
+# 0. FETCH phones data
+       - live link project : https://phones-details-web.netlify.app/
+       
 # 1. FETCH phones data
 
        - Fetching data with async - await function
